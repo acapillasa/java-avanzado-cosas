@@ -1,0 +1,108 @@
+.parallax1 {
+  background-image: url("images/image1.jpeg");
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.parallax2 {
+  background-image: url("images/image2.jpeg");
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.parallax3 {
+  background-image: url("images/image3.jpeg");
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.parallax4 {
+  background-image: url("images/image4.jpeg");
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.contentParallax {
+  padding: 50px;
+  text-align: center;
+  background: none;
+  color: white;
+}
+
+.content2 {
+  padding: 200px;
+  text-align: center;
+  background: none;
+  background-color: #c7c8bd;
+  color: white;
+}
+
+.content4 {
+  padding: 200px;
+  text-align: center;
+  background: none;
+  background-color: #638a88;
+  color: white;
+}
+
+.content6 {
+  padding: 200px;
+  text-align: center;
+  background: none;
+  background-color: #394559;
+  color: white;
+}
+
+.content8 {
+  padding: 200px;
+  text-align: center;
+  background: none;
+  background-color: #9ebdc3;
+  color: white;
+}
+
+.content10 {
+  padding: 200px;
+  text-align: center;
+  background: none;
+  background-color: black;
+  color: white;
+  
+}
+
+h1 {
+  font-weight: bold;
+  font-size: x-large;
+}

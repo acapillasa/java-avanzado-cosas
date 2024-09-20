@@ -1,0 +1,29 @@
+.parallax {
+    background-image: url('images/imagen1.png'); 
+    min-height: 100vh; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content1 {
+    padding: 50px;
+    text-align: center;
+    background: none;
+    color: white;
+}
+
+.content2 {
+    padding: 50px;
+    text-align: center;
+    background: none;
+    min-height: 100vh;
+
+    align-content: center;
+}
