@@ -1,0 +1,451 @@
+// Colores
+$primary-color: #ffb347;
+$secondary-color: #333;
+$hover-bg-color: #fff;
+$blanco-transparente: rgba(255, 255, 255, 0.9);
+
+// Variables de tamaño de letra
+$letra-gigante: 5rem;
+$letra-muy-grande: 3rem;
+$letra-grande: 2rem;
+$letra-estandar: 1.2rem;
+$letra-estandar-grande: 1.5rem;
+$letra-pequeña: 1rem;
+$letra-mini: 0.8rem;
+
+// Variables de tamaño para pantallas
+$pantalla-pequeña: 576px; // Móviles pequeños
+$pantalla-mediana: 768px; // Tablets
+$pantalla-grande: 992px; // Portátiles
+$pantalla-muy-grande: 1200px; // Pantallas grandes
+
+// Metodo bg-color y color
+@mixin theme-colors($bg-color, $text-color) {
+  background-color: $bg-color;
+  color: $text-color;
+}
+
+// Metodo margin y padding
+@mixin spacing($mValue, $pValue) {
+  margin: $mValue;
+  padding: $pValue;
+}
+
+// Metodo animacion enlaces
+@mixin hover-effect($hover-color) {
+  transition: color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    color: $hover-color;
+
+    &:before {
+      width: 100%;
+      left: 0;
+    }
+  }
+}
+
+
+
+header {
+  padding: 20px 0;
+  animation: fadeInHeader 1s ease; // Animación de entrada para el header
+  @include theme-colors($primary-color, $secondary-color);
+
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .logo {
+      width: 120px; // Ajusta el tamaño del logo según necesites
+      transition: transform 0.3s ease; // Transición suave para el zoom
+
+      &:hover {
+        transform: scale(1.5); // Aumenta el tamaño al pasar el mouse
+      }
+    }
+
+    h1 {
+      display: flex; // Para alinear las letras en fila
+      font-family: "Arial", sans-serif;
+      font-size: $letra-gigante;
+
+      .letter {
+        display: inline-block; // Permitir animación individual
+        transition: transform 0.5s ease-out; // Transición suave para la rotación
+        margin-left: 2px;
+        margin-right: 2px;
+
+        &:hover {
+          transform: rotate(360deg); // Rotar 360 grados al pasar el mouse
+        }
+      }
+    }
+
+    nav {
+      ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+
+        @include spacing(0, 0);
+
+        li {
+          a {
+            text-decoration: none;
+            font-size: $letra-estandar;
+            color: $secondary-color;
+            padding: 5px;
+            position: relative; // Necesario para el efecto del subrayado
+            @include hover-effect($hover-bg-color);
+
+            // Efecto de subrayado desde el centro
+            &:before {
+              content: "";
+              position: absolute;
+              width: 0;
+              height: 2px;
+              bottom: -5px;
+              left: 50%;
+              background-color: black; // Usar negro para la raya
+              transition: width 0.3s ease, left 0.3s ease;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Animación de desvanecimiento del Header
+@keyframes fadeInHeader {
+  from {
+    opacity: 0;
+    transform: translateY(-100px); // Desplazar ligeramente hacia abajo
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Estilos Responsivos header
+@media (max-width: $pantalla-grande) {
+  header {
+    .header-container {
+      flex-direction: column; // Cambia el diseño a columnas
+      align-items: center; // Alinea los elementos en el centro de forma horizontal
+      justify-content: center; // Centra los elementos verticalmente
+
+      .logo {
+        width: 100px; // Reduce el tamaño del logo
+      }
+
+      h1 {
+        font-size: $letra-muy-grande; // Ajusta el tamaño del título
+        text-align: center; // Asegúrate de centrar el texto
+      }
+
+      nav ul {
+        flex-direction: column; // Menú vertical
+        align-items: center; // Centra los elementos dentro del ul
+        gap: 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: $pantalla-mediana) {
+  header {
+    .header-container {
+      .logo {
+        width: 80px; // Logo más pequeño en tablets
+      }
+
+      h1 {
+        font-size: $letra-grande; // Ajuste adicional del título
+      }
+    }
+  }
+
+  .content {
+    width: 90%; // Mayor ancho en tablets
+  }
+}
+
+@media (max-width: $pantalla-pequeña) {
+  header {
+    .header-container {
+      .logo {
+        width: 60px; // Logo aún más pequeño en móviles
+      }
+
+      h1 {
+        font-size: $letra-estandar-grande; // Ajuste adicional del título
+      }
+
+      nav ul {
+        font-size: $letra-pequeña; // Ajusta el tamaño del menú
+      }
+    }
+  }
+
+  .content {
+    width: 100%; // Ocupar todo el ancho en móviles
+  }
+
+  .game-example {
+    max-width: 100%; // Ocupar todo el ancho disponible
+  }
+}
+
+body {
+  @include spacing(0, 0);
+  font-family: "Arial", sans-serif;
+  background-color: transparent; // Cambiado de gris a transparente
+}
+
+.parallax {
+  background-image: url("../images/fondo-frutas-sinFondo.png");
+  height: 20vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: transparent; // Asegúrate de que el fondo de la parallax sea transparente
+}
+
+.content {
+  height: auto;
+  width: 60%;
+  @include spacing(50px auto, 30px);
+  background-color: $blanco-transparente; // Fondo semitransparente para mejorar la legibilidad
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); // Sombra más profunda
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: $secondary-color;
+  text-align: center;
+  animation: fadeInContent 1s ease; // Animación de entrada
+
+  h2,
+  p {
+    background-color: transparent; // Asegura que los textos no hereden fondo
+  }
+
+  h2 {
+    font-size: $letra-muy-grande; // Aumentar el tamaño del texto
+    margin-bottom: 15px;
+    font-weight: bold; // Hacer el texto más llamativo
+  }
+
+  p {
+    font-size: $letra-estandar-grande; // Aumentar el tamaño del texto
+    @include spacing(0, 0);
+  }
+}
+
+// Animación de desvanecimiento del content
+@keyframes fadeInContent {
+  from {
+    opacity: 0;
+    transform: translateX(200px); // Desplazar ligeramente hacia arriba
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.game-example {
+  @include spacing(20px auto, 20px);
+  border: 2px solid $secondary-color; // Borde del ejemplo
+  border-radius: 10px; // Bordes redondeados
+  background-color: $blanco-transparente; // Fondo blanco ligeramente transparente
+  max-width: 600px; // Ancho máximo para el contenido
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+  h3 {
+    font-size: $letra-grande;
+    margin-bottom: 15px;
+    color: $secondary-color;
+  }
+
+  .question {
+    font-size: $letra-estandar-grande;
+    margin-bottom: 10px;
+    color: $secondary-color;
+  }
+
+  .answers-grid {
+    display: grid; // Activar el diseño de cuadrícula
+    grid-template-columns: repeat(2, 1fr); // Dos columnas
+    gap: 10px; // Espacio entre las respuestas
+
+    .answer {
+      font-size: $letra-estandar;
+      @include spacing(10px 0, 10px);
+      border-radius: 5px; // Bordes redondeados para las respuestas
+      text-align: center; // Centrar texto
+      display: flex; // Cambiar a flexbox para la alineación
+      justify-content: center; // Centrar horizontalmente
+      align-items: center; // Centrar verticalmente
+      border: 2px solid $secondary-color; // Borde del ejemplo
+
+      &.correct {
+        background-color: #c8e6c9; // Verde claro para respuesta correcta
+        color: #388e3c; // Texto verde oscuro
+      }
+
+      &.incorrect {
+        background-color: #ffcdd2; // Rojo claro para respuesta incorrecta
+        color: #d32f2f; // Texto rojo oscuro
+      }
+
+      .mouse-answer {
+        display: flex; // Usar Flexbox para alinear horizontalmente
+        align-items: center; // Centrar verticalmente la imagen y el texto
+        justify-content: center; // Centrar horizontalmente la imagen y el texto
+      }
+
+      .mouse-image {
+        width: 30px; // Ajusta el tamaño según sea necesario
+        height: auto; // Mantener la proporción
+        margin-right: 5px; // Espacio entre la imagen y el texto
+      }
+    }
+  }
+}
+
+.partida-rapida {
+  text-align: center; // Centrar el texto y el botón
+  margin-top: 20px;
+
+  p {
+    font-size: $letra-estandar; // Ajusta el tamaño del texto
+    margin-bottom: 10px; // Espacio debajo del texto
+  }
+
+  .btn-partida-rapida {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: $primary-color; // Usa tu color primario
+    color: #fff;
+    text-decoration: none;
+    font-size: $letra-estandar;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken(
+        $primary-color,
+        10%
+      ); // Oscurecer el color al pasar el ratón
+    }
+  }
+}
+
+footer {
+  @include theme-colors($primary-color, $secondary-color);
+  padding: 20px 0;
+  text-align: center; // Centrar texto
+
+  .footer-container {
+    display: flex; // Usar flexbox para la alineación
+    justify-content: space-around; // Espaciar las secciones
+    flex-wrap: wrap;
+    max-width: 1200px; // Ancho máximo
+    margin: 0 auto; // Centrar footer en la página
+    gap: 20px;
+
+    .footer-section {
+      flex: 1; // Permitir que las secciones ocupen el mismo espacio
+      margin: 0 20px; // Espaciado entre secciones
+
+      h5 {
+        font-size: $letra-grande; // Tamaño de fuente para los encabezados
+        margin-bottom: 10px; // Espacio debajo del encabezado
+      }
+
+      p {
+        font-size: $letra-pequeña; // Tamaño de fuente para el texto
+      }
+
+      ul {
+        list-style: none; // Sin viñetas
+        padding: 0; // Sin padding
+
+        li {
+          margin: 5px 0; // Espacio entre enlaces
+
+          $redes-colores: #3b5998, #00acee, #e1306c, #c4302b; // Colores para Facebook, Twitter, Instagram, YouTube
+          $redes-nombres: facebook, twitter, instagram, youtube; // Nombres de las clases
+
+          @for $i from 1 through length($redes-nombres) {
+            .#{nth($redes-nombres, $i)} {
+              &:hover {
+                color: nth($redes-colores, $i);
+              }
+            }
+          }
+
+          a {
+            text-decoration: none; // Sin subrayado
+            color: $secondary-color; // Color del texto
+            font-size: $letra-estandar;
+            @include hover-effect($hover-bg-color);
+
+            // Efecto de subrayado en hover
+            &:before {
+              content: "";
+              position: absolute;
+              width: 0;
+              height: 2px;
+              bottom: -2px;
+              left: 0;
+              background-color: $hover-bg-color;
+              transition: width 0.3s ease;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    margin-top: 20px; // Espacio arriba del pie de página
+
+    p {
+      font-size: $letra-mini; // Tamaño de fuente más pequeño
+      margin: 0; // Sin margen
+    }
+  }
+}
+
+.footer-bottom {
+  margin-top: 20px;
+
+  p {
+    font-size: $letra-mini;
+    margin: 0;
+  }
+}
+
+// Estilos Responsivos footer
+@media (max-width: $pantalla-mediana) {
+  .footer-container {
+    flex-direction: column; // Cambiar a columnas en pantallas pequeñas
+    align-items: center; // Alinear al centro
+    text-align: center; // Centrar el texto
+  }
+
+  .footer-section {
+    margin: 10px 0; // Ajustar el margen para espaciado vertical
+  }
+}
