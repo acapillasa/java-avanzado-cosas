@@ -116,7 +116,24 @@ header {
           }
         }
       }
+
+      .login-link {
+        font-weight: bold; // Hacer que el texto sea más audaz
+        border: 2px solid $primary-color; // Agregar un borde alrededor del enlace
+        border-radius: 5px; // Bordes redondeados
+        padding: 5px 10px; // Espaciado interno
+        transition: background-color 0.3s ease, color 0.3s ease; // Transiciones suaves
+    
+        // Asegúrate de que el estilo base sea visible
+        background-color: transparent; // Fondo transparente para que no sea un problema
+    
+        &:hover {
+          background-color: $hover-bg-color; // Cambiar el fondo al pasar el ratón
+          color: $secondary-color; // Cambiar el color del texto al pasar el ratón
+        }
+      }
     }
+    
   }
 }
 
@@ -201,6 +218,26 @@ header {
     max-width: 100%; // Ocupar todo el ancho disponible
   }
 }
+
+.dark-mode-toggle {
+  position: fixed;
+  top: 20px; // Ajusta la posición vertical
+  right: 20px; // Ajusta la posición horizontal
+  background-color: $secondary-color; // Color de fondo del botón
+  color: $blanco-transparente; // Color del texto o ícono
+  border: none;
+  border-radius: 50%; // Si deseas que sea un botón circular
+  padding: 10px; // Ajusta el tamaño del botón
+  cursor: pointer;
+  z-index: 1000; // Asegura que el botón esté por encima de otros elementos de la página
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Añade una sombra para destacar el botón
+
+  &:hover {
+    color: $secondary-color;
+    background-color: $hover-bg-color; // Cambia el color al pasar el mouse
+  }
+}
+
 
 body {
   @include spacing(0, 0);

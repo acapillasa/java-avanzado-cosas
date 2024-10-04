@@ -64,6 +64,18 @@ header .header-container nav ul li a:before {
   background-color: black;
   transition: width 0.3s ease, left 0.3s ease;
 }
+header .header-container nav .login-link {
+  font-weight: bold;
+  border: 2px solid #ffb347;
+  border-radius: 5px;
+  padding: 5px 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: transparent;
+}
+header .header-container nav .login-link:hover {
+  background-color: #fff;
+  color: #333;
+}
 
 @keyframes fadeInHeader {
   from {
@@ -122,6 +134,24 @@ header .header-container nav ul li a:before {
     max-width: 100%;
   }
 }
+.dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #333;
+  color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.dark-mode-toggle:hover {
+  color: #333;
+  background-color: #fff;
+}
+
 body {
   margin: 0;
   padding: 0;
