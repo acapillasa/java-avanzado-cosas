@@ -134,7 +134,7 @@ header .header-container nav .login-link:hover {
     max-width: 100%;
   }
 }
-.dark-mode-toggle {
+.btn-oscuro {
   position: fixed;
   top: 20px;
   right: 20px;
@@ -147,16 +147,65 @@ header .header-container nav .login-link:hover {
   z-index: 1000;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-.dark-mode-toggle:hover {
+.btn-oscuro:hover {
   color: #333;
   background-color: #fff;
+}
+
+.balance-button {
+  display: flex;
+  align-items: center;
+  background-color: #ffb347;
+  border-radius: 100px;
+  padding: 10px 20px;
+  width: 250px;
+  cursor: pointer;
+}
+.balance-button .coin-image {
+  flex: 0 0 30%;
+}
+.balance-button .coin-image img {
+  width: 100%;
+  border-radius: 15px;
+}
+.balance-button .balance-amount {
+  flex: 0 0 70%;
+  text-align: right;
+  font-size: 2rem;
+  color: #333;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: "Arial", sans-serif;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+body.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+body.dark-mode .game-example {
+  background-color: #333;
+  color: #fff;
+}
+body.dark-mode .game-example h3, body.dark-mode .game-example .question, body.dark-mode .game-example .answer {
+  color: #fff;
+}
+body.dark-mode .game-example .answer {
+  border: 2px solid #fff;
+}
+body.dark-mode .game-example .correct {
+  background-color: #388e3c;
+  color: #fff;
+}
+body.dark-mode .game-example .incorrect {
+  background-color: #d32f2f;
+  color: #fff;
+}
+body.dark-mode .btn-partida-rapida:hover {
+  background-color: #d32f2f;
 }
 
 .parallax {
@@ -199,6 +248,31 @@ body {
   margin: 0;
   padding: 0;
 }
+.content.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+.content.dark-mode .game-example {
+  background-color: #333;
+  color: #fff;
+}
+.content.dark-mode .game-example h3, .content.dark-mode .game-example .question, .content.dark-mode .game-example .answer {
+  color: #fff;
+}
+.content.dark-mode .game-example .answer {
+  border: 2px solid #fff;
+}
+.content.dark-mode .game-example .correct {
+  background-color: #388e3c;
+  color: #fff;
+}
+.content.dark-mode .game-example .incorrect {
+  background-color: #d32f2f;
+  color: #fff;
+}
+.content.dark-mode .btn-partida-rapida:hover {
+  background-color: #d32f2f;
+}
 
 @keyframes fadeInContent {
   from {
@@ -215,7 +289,6 @@ body {
   padding: 20px;
   border: 2px solid #333;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.9);
   max-width: 600px;
   text-align: center;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -245,6 +318,7 @@ body {
   justify-content: center;
   align-items: center;
   border: 2px solid #333;
+  color: #333;
 }
 .game-example .answers-grid .answer.correct {
   background-color: #c8e6c9;
@@ -284,7 +358,7 @@ body {
   transition: background-color 0.3s ease;
 }
 .partida-rapida .btn-partida-rapida:hover {
-  background-color: rgb(255, 157.9347826087, 20);
+  background-color: #333;
 }
 
 footer {

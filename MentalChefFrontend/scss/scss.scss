@@ -3,6 +3,8 @@ $primary-color: #ffb347;
 $secondary-color: #333;
 $hover-bg-color: #fff;
 $blanco-transparente: rgba(255, 255, 255, 0.9);
+$correcto: #388e3c;
+$incorrecto: #d32f2f;
 
 // Variables de tamaño de letra
 $letra-gigante: 5rem;
@@ -41,6 +43,42 @@ $pantalla-muy-grande: 1200px; // Pantallas grandes
     &:before {
       width: 100%;
       left: 0;
+    }
+  }
+}
+
+@mixin dark-mode() {
+  &.dark-mode {
+    background-color: $secondary-color; // Fondo oscuro
+    color: $hover-bg-color; // Color de texto oscuro
+
+    .game-example {
+      background-color: $secondary-color; // Fondo más oscuro para el div
+      color: $hover-bg-color; // Cambiar el color del texto a blanco
+  
+      h3, .question, .answer {
+        
+        color: $hover-bg-color; // Asegúrate de que todos los elementos de texto dentro sean blancos
+      }
+
+      .answer {
+        border: 2px solid $hover-bg-color;
+      }
+
+      .correct {
+        background-color: $correcto; // Puedes mantener el color de la respuesta correcta
+        color: $hover-bg-color; // Asegúrate de que el texto sea blanco también
+      }
+  
+      .incorrect {
+        background-color: $incorrecto; // Mantén el color de la respuesta incorrecta
+        color: $hover-bg-color; // Cambiar texto a blanco
+      }
+    }
+    .btn-partida-rapida {
+      &:hover {
+        background-color: $incorrecto;
+      }
     }
   }
 }
@@ -219,7 +257,7 @@ header {
   }
 }
 
-.dark-mode-toggle {
+.btn-oscuro {
   position: fixed;
   top: 20px; // Ajusta la posición vertical
   right: 20px; // Ajusta la posición horizontal
@@ -238,11 +276,39 @@ header {
   }
 }
 
+.balance-button {
+  display: flex;
+  align-items: center;
+  background-color: #ffb347; // Color del bo
+  border-radius: 100px; // Bordes redondeados
+  padding: 10px 20px; // Espaciado interno
+  width: 250px; // Ancho total del botón
+  cursor: pointer; // Cambia el cursor al pasar el ratón
+
+  .coin-image {
+    flex: 0 0 30%; // 30% del ancho para la imagen de la moneda
+    img {
+      width: 100%; // Ajusta la imagen para que llene el contenedor
+      border-radius: 15px; // Redondear bordes de la imagen
+    }
+  }
+
+  .balance-amount {
+    flex: 0 0 70%; // 70% del ancho para el número
+    text-align: right; // Alinear el texto a la derecha
+    font-size: $letra-grande; // Usar tu variable de tamaño de letra
+    color: $secondary-color; // Usar tu color secundario
+  }
+}
+
 
 body {
   @include spacing(0, 0);
-  font-family: "Arial", sans-serif;
-  background-color: transparent; // Cambiado de gris a transparente
+  background-color: $blanco-transparente; // Fondo claro por defecto
+  color: $hover-bg-color; // Color de texto claro
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  @include dark-mode();
 }
 
 .parallax {
@@ -285,6 +351,8 @@ body {
     font-size: $letra-estandar-grande; // Aumentar el tamaño del texto
     @include spacing(0, 0);
   }
+
+  @include dark-mode();
 }
 
 // Animación de desvanecimiento del content
@@ -303,7 +371,6 @@ body {
   @include spacing(20px auto, 20px);
   border: 2px solid $secondary-color; // Borde del ejemplo
   border-radius: 10px; // Bordes redondeados
-  background-color: $blanco-transparente; // Fondo blanco ligeramente transparente
   max-width: 600px; // Ancho máximo para el contenido
   text-align: center;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -334,15 +401,16 @@ body {
       justify-content: center; // Centrar horizontalmente
       align-items: center; // Centrar verticalmente
       border: 2px solid $secondary-color; // Borde del ejemplo
+      color: $secondary-color;
 
       &.correct {
         background-color: #c8e6c9; // Verde claro para respuesta correcta
-        color: #388e3c; // Texto verde oscuro
+        color: $correcto; // Texto verde oscuro
       }
 
       &.incorrect {
         background-color: #ffcdd2; // Rojo claro para respuesta incorrecta
-        color: #d32f2f; // Texto rojo oscuro
+        color: $incorrecto; // Texto rojo oscuro
       }
 
       .mouse-answer {
@@ -380,10 +448,7 @@ body {
     transition: background-color 0.3s ease;
 
     &:hover {
-      background-color: darken(
-        $primary-color,
-        10%
-      ); // Oscurecer el color al pasar el ratón
+      background-color: $secondary-color;
     }
   }
 }
