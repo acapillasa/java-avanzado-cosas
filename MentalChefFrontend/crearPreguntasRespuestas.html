@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/css.css">
+    <title>Formulario de Pregunta</title>
+</head>
+<body>
+    <div class="game-creator">
+        <h3 class="question">Escribe la pregunta:</h3>
+        <input type="text" class="input-question" placeholder="Escribe tu pregunta aquí">
+
+        <h3 class="question">Escribe las respuestas:</h3>
+        <div class="answers-grid">
+            <!-- Respuesta 1 -->
+            <div class="answer">
+                <label>
+                    <input type="radio" name="answer" class="radio-btn">
+                    <input type="text" placeholder="Respuesta 1">
+                </label>
+            </div>
+
+            <!-- Respuesta Correcta -->
+            <div class="answer">
+                <label>
+                    <input type="radio" name="answer" class="radio-btn">
+                    <input type="text" placeholder="Respuesta Correcta">
+                </label>
+            </div>
+
+            <!-- Respuesta Incorrecta -->
+            <div class="answer">
+                <label>
+                    <input type="radio" name="answer" class="radio-btn">
+                    <input type="text" placeholder="Respuesta 3">
+                </label>
+            </div>
+
+            <!-- Otra Respuesta Incorrecta -->
+            <div class="answer">
+                <label>
+                    <input type="radio" name="answer" class="radio-btn">
+                    <input type="text" placeholder="Respuesta 4">
+                </label>
+            </div>
+        </div>
+
+        <!-- Botón Enviar -->
+        <button class="submit-btn">Enviar</button>
+    </div>
+</body>
+</html>

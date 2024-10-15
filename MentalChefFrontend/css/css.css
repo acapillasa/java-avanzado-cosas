@@ -1,3 +1,4 @@
+@charset "UTF-8";
 header {
   padding: 20px 0;
   animation: fadeInHeader 1s ease;
@@ -152,27 +153,305 @@ header .header-container nav .login-link:hover {
   background-color: #fff;
 }
 
-.balance-button {
+.contenedor-contador-monedas {
   display: flex;
   align-items: center;
   background-color: #ffb347;
-  border-radius: 100px;
+  border-radius: 50px;
   padding: 10px 20px;
-  width: 250px;
+  width: 150px;
   cursor: pointer;
+  border: 3px solid black;
 }
-.balance-button .coin-image {
-  flex: 0 0 30%;
+.contenedor-contador-monedas .imagen-monedaV {
+  flex: 0 0 40px;
+  height: 45px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid black;
+  background-color: white;
 }
-.balance-button .coin-image img {
+.contenedor-contador-monedas .imagen-monedaV img {
   width: 100%;
-  border-radius: 15px;
+  height: auto;
+  object-fit: cover;
 }
-.balance-button .balance-amount {
-  flex: 0 0 70%;
-  text-align: right;
+.contenedor-contador-monedas .contador {
+  flex: 1;
+  text-align: center;
   font-size: 2rem;
+  font-weight: bold;
+  color: black;
+}
+
+.contenedor-pregunta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffb347;
+  border-radius: 50px;
+  padding: 20px;
+  width: 400px;
+  height: 200px;
+  border: 3px solid #333;
+  text-align: center;
+}
+.contenedor-pregunta h2 {
+  font-size: 1.5rem;
   color: #333;
+  margin-bottom: 20px;
+}
+.contenedor-pregunta .golden-button {
+  touch-action: manipulation;
+  display: inline-block;
+  outline: none;
+  font-family: inherit;
+  font-size: 1em;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 0.3em;
+  height: 2.75em;
+  line-height: 2.5em;
+  text-transform: uppercase;
+  padding: 0 1em;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(110, 80, 20, 0.4), inset 0 -2px 5px 1px rgb(139, 66, 8), inset 0 -1px 1px 3px rgb(250, 227, 133);
+  background-image: linear-gradient(160deg, #a54e07, #b47e11, #fef1a2, #bc881b, #a54e07);
+  border: 1px solid #a55d07;
+  color: rgb(120, 50, 5);
+  text-shadow: 0 2px 2px rgb(250, 227, 133);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background-size: 100% 100%;
+  background-position: center;
+}
+.contenedor-pregunta .golden-button:focus, .contenedor-pregunta .golden-button:hover {
+  background-size: 150% 150%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23), inset 0 -2px 5px 1px #b17d10, inset 0 -1px 1px 3px rgb(250, 227, 133);
+  border: 1px solid rgba(165, 93, 7, 0.6);
+  color: rgba(120, 50, 5, 0.8);
+}
+.contenedor-pregunta .golden-button:active {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(110, 80, 20, 0.4), inset 0 -2px 5px 1px #b17d10, inset 0 -1px 1px 3px rgb(250, 227, 133);
+}
+
+.contenedor-evento {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffb347;
+  border-radius: 50px;
+  padding: 20px;
+  width: 600px;
+  height: 300px;
+  border: 3px solid #333;
+  position: relative;
+}
+.contenedor-evento .tiempo-restante {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+.contenedor-evento .nombre-evento {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.contenedor-evento .nombre-evento .tri {
+  position: relative;
+  border-top: 90px solid #f1473a;
+  border-left: 70px solid transparent;
+  border-right: 70px solid transparent;
+  border-bottom: 0px;
+  cursor: pointer;
+  margin-top: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.contenedor-evento .nombre-evento .tri:hover {
+  border-bottom-color: #333;
+  transform: scale(1.1);
+}
+.contenedor-evento .nombre-evento .invert {
+  border-top: 0px;
+  border-bottom: 100px solid #f1473a;
+}
+.contenedor-evento .nombre-evento .invert:hover {
+  border-bottom-color: #333;
+  transform: scale(1.1);
+}
+.contenedor-evento .colaboracion {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  text-align: center;
+}
+.contenedor-evento .colaboracion span {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.contenedor-evento .colaboracion img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #333;
+}
+
+.game {
+  margin: 20px auto;
+  padding: 20px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: #ffb347;
+}
+.game h3 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+.game .question {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+.game .answers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.game .answers-grid .answer {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #333;
+  color: #333;
+  background-color: #fff;
+  cursor: pointer;
+  transition: transform 0.1s ease, background-color 0.1s ease, box-shadow 0.1s ease;
+}
+.game .answers-grid .answer:hover {
+  transform: scale(1.05);
+  background-color: #f0f0f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.game-creator {
+  margin: 20px auto;
+  padding: 20px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.game-creator h3 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+.game-creator .input-question {
+  font-size: 1.2rem;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid #333;
+  width: 80%;
+  margin-bottom: 20px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+.game-creator .input-question:focus {
+  border-color: #ffb347;
+}
+.game-creator .answers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.game-creator .answers-grid .answer {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #333;
+  color: #333;
+  position: relative;
+  /* Cambiar el fondo del div cuando el radio button esté seleccionado */
+  /* Cambiar el fondo del div cuando el radio button esté seleccionado */
+}
+.game-creator .answers-grid .answer label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.game-creator .answers-grid .answer input[type=text] {
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  width: 70%;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.game-creator .answers-grid .answer input[type=radio] {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+.game-creator .answers-grid .answer input[type=radio]:checked + input[type=text] {
+  background-color: #28a745; /* Fondo verde */
+  color: white;
+  border-color: #28a745;
+}
+.game-creator .answers-grid .answer input[type=radio]:checked {
+  background-color: #28a745; /* Fondo verde */
+  color: white;
+  border-color: #28a745;
+}
+.game-creator .answers-grid .answer:hover {
+  background-color: #f0f0f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.game-creator .submit-btn {
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #ffb347;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.game-creator .submit-btn:hover {
+  background-color: rgb(255, 157.9347826087, 20);
+  transform: scale(1.05);
+}
+.game-creator .submit-btn:focus {
+  box-shadow: 0 0 5px 2px #333;
 }
 
 body {
@@ -190,7 +469,9 @@ body.dark-mode .game-example {
   background-color: #333;
   color: #fff;
 }
-body.dark-mode .game-example h3, body.dark-mode .game-example .question, body.dark-mode .game-example .answer {
+body.dark-mode .game-example h3,
+body.dark-mode .game-example .question,
+body.dark-mode .game-example .answer {
   color: #fff;
 }
 body.dark-mode .game-example .answer {
@@ -256,7 +537,9 @@ body.dark-mode .btn-partida-rapida:hover {
   background-color: #333;
   color: #fff;
 }
-.content.dark-mode .game-example h3, .content.dark-mode .game-example .question, .content.dark-mode .game-example .answer {
+.content.dark-mode .game-example h3,
+.content.dark-mode .game-example .question,
+.content.dark-mode .game-example .answer {
   color: #fff;
 }
 .content.dark-mode .game-example .answer {

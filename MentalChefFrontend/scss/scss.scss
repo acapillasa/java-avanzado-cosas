@@ -2,6 +2,7 @@
 $primary-color: #ffb347;
 $secondary-color: #333;
 $hover-bg-color: #fff;
+$rojo-fuego: #f1473a;
 $blanco-transparente: rgba(255, 255, 255, 0.9);
 $correcto: #388e3c;
 $incorrecto: #d32f2f;
@@ -55,9 +56,10 @@ $pantalla-muy-grande: 1200px; // Pantallas grandes
     .game-example {
       background-color: $secondary-color; // Fondo más oscuro para el div
       color: $hover-bg-color; // Cambiar el color del texto a blanco
-  
-      h3, .question, .answer {
-        
+
+      h3,
+      .question,
+      .answer {
         color: $hover-bg-color; // Asegúrate de que todos los elementos de texto dentro sean blancos
       }
 
@@ -69,7 +71,7 @@ $pantalla-muy-grande: 1200px; // Pantallas grandes
         background-color: $correcto; // Puedes mantener el color de la respuesta correcta
         color: $hover-bg-color; // Asegúrate de que el texto sea blanco también
       }
-  
+
       .incorrect {
         background-color: $incorrecto; // Mantén el color de la respuesta incorrecta
         color: $hover-bg-color; // Cambiar texto a blanco
@@ -82,8 +84,6 @@ $pantalla-muy-grande: 1200px; // Pantallas grandes
     }
   }
 }
-
-
 
 header {
   padding: 20px 0;
@@ -161,17 +161,16 @@ header {
         border-radius: 5px; // Bordes redondeados
         padding: 5px 10px; // Espaciado interno
         transition: background-color 0.3s ease, color 0.3s ease; // Transiciones suaves
-    
+
         // Asegúrate de que el estilo base sea visible
         background-color: transparent; // Fondo transparente para que no sea un problema
-    
+
         &:hover {
           background-color: $hover-bg-color; // Cambiar el fondo al pasar el ratón
           color: $secondary-color; // Cambiar el color del texto al pasar el ratón
         }
       }
     }
-    
   }
 }
 
@@ -276,28 +275,355 @@ header {
   }
 }
 
-.balance-button {
+.contenedor-contador-monedas {
   display: flex;
   align-items: center;
-  background-color: #ffb347; // Color del bo
-  border-radius: 100px; // Bordes redondeados
-  padding: 10px 20px; // Espaciado interno
-  width: 250px; // Ancho total del botón
-  cursor: pointer; // Cambia el cursor al pasar el ratón
+  background-color: #ffb347; // Color de fondo similar al boceto
+  border-radius: 50px; // Bordes redondeados en todo el contenedor
+  padding: 10px 20px;
+  width: 150px; // Ajuste del tamaño del contenedor para que sea más compacto
+  cursor: pointer;
+  border: 3px solid black; // Borde negro para mayor contraste
 
-  .coin-image {
-    flex: 0 0 30%; // 30% del ancho para la imagen de la moneda
+  .imagen-monedaV {
+    flex: 0 0 40px; // Ajuste del tamaño de la imagen
+    height: 45px; // Hacer que sea un cuadrado
+    border-radius: 50%; // Borde redondeado completo para hacer un círculo
+    overflow: hidden;
+    border: 2px solid black; // Borde negro alrededor de la imagen
+    background-color: white; // Fondo blanco para asemejarse al boceto
+
     img {
-      width: 100%; // Ajusta la imagen para que llene el contenedor
-      border-radius: 15px; // Redondear bordes de la imagen
+      width: 100%;
+      height: auto;
+      object-fit: cover; // Ajusta la imagen dentro del contenedor sin deformarla
     }
   }
 
-  .balance-amount {
-    flex: 0 0 70%; // 70% del ancho para el número
-    text-align: right; // Alinear el texto a la derecha
-    font-size: $letra-grande; // Usar tu variable de tamaño de letra
-    color: $secondary-color; // Usar tu color secundario
+  .contador {
+    flex: 1;
+    text-align: center; // Centrar el texto del contador
+    font-size: 2rem; // Tamaño más grande para el número
+    font-weight: bold; // Para hacer el número más visible
+    color: black; // Ajustar al color del boceto
+  }
+}
+
+.contenedor-pregunta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $primary-color; // Fondo similar al boceto
+  border-radius: 50px; // Bordes redondeados
+  padding: 20px;
+  width: 400px; // Ajustar según el diseño deseado
+  height: 200px; // Ajuste de tamaño
+  border: 3px solid $secondary-color; // Borde negro alrededor
+  text-align: center;
+
+  h2 {
+    font-size: 1.5rem; // Tamaño de la fuente del título
+    color: $secondary-color; // Color del texto
+    margin-bottom: 20px; // Espacio entre el título y el botón
+  }
+
+  .golden-button {
+    touch-action: manipulation;
+    display: inline-block;
+    outline: none;
+    font-family: inherit;
+    font-size: 1em;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 0.3em;
+    height: 2.75em;
+    line-height: 2.5em;
+    text-transform: uppercase;
+    padding: 0 1em;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(110, 80, 20, 0.4),
+      inset 0 -2px 5px 1px rgba(139, 66, 8, 1),
+      inset 0 -1px 1px 3px rgba(250, 227, 133, 1);
+    background-image: linear-gradient(
+      160deg,
+      #a54e07,
+      #b47e11,
+      #fef1a2,
+      #bc881b,
+      #a54e07
+    );
+    border: 1px solid #a55d07;
+    color: rgb(120, 50, 5);
+    text-shadow: 0 2px 2px rgba(250, 227, 133, 1);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    background-size: 100% 100%;
+    background-position: center;
+
+    &:focus,
+    &:hover {
+      background-size: 150% 150%;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23),
+        inset 0 -2px 5px 1px #b17d10,
+        inset 0 -1px 1px 3px rgba(250, 227, 133, 1);
+      border: 1px solid rgba(165, 93, 7, 0.6);
+      color: rgba(120, 50, 5, 0.8);
+    }
+
+    &:active {
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
+        0 3px 6px rgba(110, 80, 20, 0.4), inset 0 -2px 5px 1px #b17d10,
+        inset 0 -1px 1px 3px rgba(250, 227, 133, 1);
+    }
+  }
+}
+
+.contenedor-evento {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $primary-color; // Color de fondo similar al boceto
+  border-radius: 50px; // Bordes redondeados
+  padding: 20px;
+  width: 600px; // Ajustar según sea necesario
+  height: 300px; // Altura del contenedor
+  border: 3px solid $secondary-color; // Borde negro como en el boceto
+  position: relative; // Para posicionar elementos dentro del contenedor
+
+  .tiempo-restante {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: $secondary-color;
+  }
+
+  .nombre-evento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 20px;
+  
+    .tri {
+      position: relative;
+      border-top: 90px solid $rojo-fuego;  // Aumenté el tamaño del triángulo
+      border-left: 70px solid transparent;
+      border-right: 70px solid transparent;
+      border-bottom: 0px;
+      cursor: pointer; // Hace que el triángulo sea clickeable
+      margin-top: 10px;
+      text-decoration: none;
+      
+      // Añadir una animación suave
+      transition: all 0.3s ease; // Animación de transición
+  
+      // Hover state
+      &:hover {
+        border-bottom-color: $secondary-color; // Cambia el color en hover
+        transform: scale(1.1); // Aumenta el tamaño un 10% en hover
+      }
+    }
+  
+    .invert {
+      border-top: 0px;
+      border-bottom: 100px solid $rojo-fuego; // Tamaño aumentado también aquí
+      
+      // Hover en la versión invertida
+      &:hover {
+        border-bottom-color: $secondary-color;
+        transform: scale(1.1); // Aumenta el tamaño en hover también
+      }
+    }
+  }
+  
+
+  .colaboracion {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    text-align: center;
+
+    span {
+      display: block;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    img {
+      width: 50px; // Ajustar tamaño de la imagen
+      height: 50px; // Hacer que sea un cuadrado
+      border-radius: 50%; // Hacer la imagen redondeada
+      border: 2px solid $secondary-color; // Borde negro alrededor de la imagen
+    }
+  }
+}
+
+.game {
+  @include spacing(20px auto, 20px);
+  border: 2px solid $secondary-color; // Borde del ejemplo
+  border-radius: 10px; // Bordes redondeados
+  max-width: 600px; // Ancho máximo para el contenido
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: $primary-color;
+
+  h3 {
+    font-size: $letra-grande;
+    margin-bottom: 15px;
+    color: $secondary-color;
+  }
+
+  .question {
+    font-size: $letra-estandar-grande;
+    margin-bottom: 10px;
+    color: $secondary-color;
+  }
+
+  .answers-grid {
+    display: grid; // Activar el diseño de cuadrícula
+    grid-template-columns: repeat(2, 1fr); // Dos columnas
+    gap: 10px; // Espacio entre las respuestas
+
+    .answer {
+      font-size: $letra-estandar;
+      @include spacing(10px 0, 10px);
+      border-radius: 5px; // Bordes redondeados para las respuestas
+      text-align: center; // Centrar texto
+      display: flex; // Cambiar a flexbox para la alineación
+      justify-content: center; // Centrar horizontalmente
+      align-items: center; // Centrar verticalmente
+      border: 2px solid $secondary-color; // Borde del ejemplo
+      color: $secondary-color;
+      background-color: #fff; // Fondo blanco por defecto
+      cursor: pointer; // Indicador de clic
+
+      transition: transform 0.1s ease, background-color 0.1s ease, box-shadow 0.1s ease;
+
+      &:hover {
+        transform: scale(1.05); // Aumenta ligeramente el tamaño
+        background-color: #f0f0f0; // Color de fondo claro al hacer hover
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); // Sombra para darle profundidad
+      }
+    }
+  }
+}
+
+.game-creator {
+  @include spacing(20px auto, 20px);
+  border: 2px solid $secondary-color;
+  border-radius: 10px;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+  h3 {
+    font-size: $letra-grande;
+    margin-bottom: 15px;
+    color: $secondary-color;
+  }
+
+  .input-question {
+    font-size: $letra-estandar;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid $secondary-color;
+    width: 80%;
+    margin-bottom: 20px;
+    outline: none;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      border-color: $primary-color;
+    }
+  }
+
+  .answers-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+
+    .answer {
+      font-size: $letra-estandar;
+      @include spacing(10px 0, 10px);
+      border-radius: 5px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid $secondary-color;
+      color: $secondary-color;
+      position: relative;
+      
+      label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+      }
+
+      input[type="text"] {
+        padding: 10px;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        width: 70%;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      input[type="radio"] {
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+        transition: transform 0.3s ease;
+      }
+
+      /* Cambiar el fondo del div cuando el radio button esté seleccionado */
+      input[type="radio"]:checked + input[type="text"] {
+        background-color: #28a745; /* Fondo verde */
+        color: white;
+        border-color: #28a745;
+      }
+
+      /* Cambiar el fondo del div cuando el radio button esté seleccionado */
+      input[type="radio"]:checked {
+        background-color: #28a745; /* Fondo verde */
+        color: white;
+        border-color: #28a745;
+      }
+
+      &:hover {
+        background-color: #f0f0f0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
+  .submit-btn {
+    padding: 10px 20px;
+    font-size: $letra-estandar-grande;
+    border: none;
+    border-radius: 5px;
+    background-color: $primary-color;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+      transform: scale(1.05);
+    }
+
+    &:focus {
+      box-shadow: 0 0 5px 2px $secondary-color;
+    }
   }
 }
 

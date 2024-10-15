@@ -2,7 +2,7 @@
 const darkModeBtn = document.querySelector('.btn-oscuro');
 
 // Verificar si el usuario ya tiene una preferencia almacenada
-let darkMode = localStorage.getItem('darkMode'); // Cambiar a let
+let darkMode = localStorage.getItem('darkMode');
 
 // Función para activar el modo oscuro
 const enableDarkMode = () => {
@@ -11,6 +11,7 @@ const enableDarkMode = () => {
   divs.forEach(div => {
     div.classList.add('dark-mode'); // Agregar la clase dark-mode a cada div
   });
+  darkModeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>'; // Cambiar el icono a sol
   localStorage.setItem('darkMode', 'enabled'); // Guardar preferencia
 }
 
@@ -21,6 +22,7 @@ const disableDarkMode = () => {
   divs.forEach(div => {
     div.classList.remove('dark-mode'); // Remover la clase dark-mode de cada div
   });
+  darkModeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>'; // Cambiar el icono a luna
   localStorage.setItem('darkMode', null); // Guardar preferencia
 }
 
